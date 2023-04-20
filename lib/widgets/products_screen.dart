@@ -15,6 +15,8 @@ class ProductScreen extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
           final aspectRatio = constraints.maxWidth / constraints.maxHeight;
 
+          final id = 1;
+
           if (aspectRatio > 1.3) {
             return DataTable(columns: const <DataColumn>[
               DataColumn(label: Expanded(child: Text("S.no"))),
@@ -23,14 +25,32 @@ class ProductScreen extends StatelessWidget {
               DataColumn(label: Expanded(child: Text("Salary"))),
               DataColumn(label: Expanded(child: Text("Phone"))),
               DataColumn(label: Expanded(child: Text("Address")))
-            ], rows: const <DataRow>[
+            ], rows: <DataRow>[
+              DataRow(
+                cells: <DataCell>[
+                  DataCell(Text("96376218671683")),
+                  DataCell(Text("Praveen")),
+                  DataCell(Text("IT")),
+                  DataCell(Text("10")),
+                  DataCell(Text("10")),
+                  DataCell(ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/product-details/$id");
+                      },
+                      child: Text("Details")))
+                ],
+              ),
               DataRow(cells: <DataCell>[
                 DataCell(Text("96376218671683")),
-                DataCell(Text("Praveen")),
+                DataCell(Text("Praveen 2")),
                 DataCell(Text("IT")),
                 DataCell(Text("10")),
                 DataCell(Text("10")),
-                DataCell(Text("10"))
+                DataCell(ElevatedButton(
+                    onPressed: ()  {
+                       Navigator.pushNamed(context, "/product-details/2");
+                    },
+                    child: Text("Details")))
               ])
             ]);
           } else {
@@ -40,10 +60,17 @@ class ProductScreen extends StatelessWidget {
                 return Column(
                   children: [
                     Text("96376218671683"),
-                    Text("Praveen"),
+                    Text(
+                      "Praveen",
+                    ),
                     Text("IT"),
                     Text("10"),
-                    Text("10"),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/product-details",
+                              arguments: {"id": "1"});
+                        },
+                        child: Text("Details")),
                   ],
                 );
               },
