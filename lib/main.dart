@@ -1,4 +1,5 @@
 import 'package:edu_flutter_web_demo/widgets/home_screen.dart';
+import 'package:edu_flutter_web_demo/widgets/products_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      home: ProductScreen(),
       theme: ThemeData(
           primarySwatch: Colors.amber,
           textTheme: const TextTheme(
